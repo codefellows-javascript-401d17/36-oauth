@@ -21,14 +21,19 @@ export default new Router()
       redirect_uri: `${process.env.API_URL}/oauth/google/code`
     })
     .then(response => {
+      console.log('1. access token', response.body.access_token, '\n');
+      console.log('1. text', response.text, '\n');
       return superagent.get('https://www.googleapis.com/plus/v1/people/me/openIdConnect')
       .set('Authorization', `Bearer ${response.body.access_token}`)
     })
     .then(response => {
+      console.log('2. access token', response.body.access_token, '\n');
+      console.log('2. text', response.text, '\n');
       return User.handleOAUTH(response.body);
     })
     .then(user => user.tokenCreate())
     .then( token => {
+      console.log('the token:', token);
       res.cookie('X-Slugchat-Token', token);
       res.redirect(process.env.CLIENT_URL);
     })

@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
-import {Router} from 'express'
-import User from '../model/user.js'
-import bodyParser from 'body-parser'
-import basicAuth from '../middleware/basic-auth.js'
+import {Router} from 'express';
+import User from '../model/user.js';
+import bodyParser from 'body-parser';
+import basicAuth from '../middleware/basic-auth.js';
 import superagent from 'superagent';
 
 export default new Router()

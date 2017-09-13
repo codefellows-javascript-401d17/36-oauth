@@ -53,7 +53,7 @@ export const stop = () => {
   return new Promise((resolve, reject) => {
     if(!state.isOn)
       return reject(new Error('USAGE ERROR: the state is off'));
-    return mongo.stop();
+    return mongo.stop()
     .then(() => {
       state.http.close(() => {
         console.log('__SERVER_DOWN__');

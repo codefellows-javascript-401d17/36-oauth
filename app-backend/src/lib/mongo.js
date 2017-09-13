@@ -17,7 +17,7 @@ const state = {
 export const start = () => {
   if(state.isOn)
     return Promise.reject(new Error('USER ERROR: db is connected'));
-  return mongoose.connect(process.env.MONGODB_URI, state.config);
+  return mongoose.connect(process.env.MONGODB_URI, state.config)
   .then(() => {
     console.log('__MONGO_CONNECTED__', process.env.MONGODB_URI);
     state.isOn = true;

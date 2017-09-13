@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LergIrn wit Gergle</title>
+  </head>
+  <body>
+    <h1>LergIrn wit Gergle Dermo</h1>
+    <script>
+      let link = document.createElement('a');
+      let AUTH_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
+      let clientIDQuery = 'client_id=912405503013-beksfvssho5lkt4mfh52u7lvv5abp06s.apps.googleusercontent.com'
+      let responseTypeQuery = 'response_type=code';
+      let scopeQuery = 'scope=openid%20profile%20email';
+      let promptQuery = 'prompt=consent';
+      let redirectURIQuery = 'redirect_uri=http://localhost:3000/oauth/google/code';
+
+      let formattedURI = `${AUTH_URL}?${clientIDQuery}&${responseTypeQuery}&${scopeQuery}&${promptQuery}&${redirectURIQuery}`;
+
+      link.setAttribute('href', formattedURI);
+      link.textContent='lergIrn With Gergle';
+
+      document.body.appendChild(link);
+    </script>
+  </body>
+</html>
